@@ -149,7 +149,7 @@ AUTH_USER_MODEL = 'api.UserModel'
 # CORS_ALLOW_ALL_ORIGINS=True
 
 CORS_ALLOWED_ORIGINS = [
-    "20.198.103.230",
+    "http://20.198.103.230",
     "https://rentassure.herokuapp.com",
     "http://localhost:3000",
     "http://localhost:3001",
