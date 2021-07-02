@@ -26,7 +26,7 @@ SECRET_KEY = '%pqa&19x$##0o5nglb@h3-+k67t^!==!dw0&buose!m-7m65le'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '20.198.103.230', 'rentassure.herokuapp.com']
 
 
 # Application definition
@@ -82,10 +82,21 @@ WSGI_APPLICATION = 'RentAssureBackend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'django_db',
+        'USER': 'admin',
+        'PASSWORD': 'admin',
+        'HOST': 'localhost',
+        'PORT': '',                      # Set to empty string for default.
     }
 }
 
@@ -135,12 +146,15 @@ MEDIA_URL= "/media/"
 AUTH_USER_MODEL = 'api.UserModel'
 
 
-CORS_ALLOW_ALL_ORIGINS=True
+# CORS_ALLOW_ALL_ORIGINS=True
 
-# CORS_ALLOWED_ORIGINS = [
-#     "https://www.google.com",
-#     "http://localhost:3000",
-# ]
+CORS_ALLOWED_ORIGINS = [
+    "20.198.103.230",
+    "https://rentassure.herokuapp.com",
+    "http://localhost:3000",
+    "http://localhost:3001",
+]
+
 
 CORS_ALLOW_HEADERS = [
     'accept',
